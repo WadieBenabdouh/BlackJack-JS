@@ -1,7 +1,7 @@
-let firstCard = 10;
-let secondCard = 11;
+let firstCard = 5;
+let secondCard = 10;
 let cardsTotal = firstCard + secondCard;
-let extraCard = 0;
+let extraCard = 6;
 
 
 let messageInfo = document.getElementById("messageInfo");
