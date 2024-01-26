@@ -44,3 +44,8 @@ newCardBtn.onclick = () => {
     }
 
 }
+
+
+replayBtn.onclick = () => {
+    location.reload()
+}
