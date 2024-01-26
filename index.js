@@ -1,44 +1,46 @@
-let firstCard = 10
-let secondCard = 4
-let sum = firstCard + secondCard
-
-let message = ""
-let messageEl = document.getElementById("message-el")
-let cardsEl = document.getElementById("cards-el")
-let sumEl = document.getElementById("sum-el")
+let firstCard = 10;
+let secondCard = 11;
+let cardsTotal = firstCard + secondCard;
+let extraCard = 0;
 
 
+let messageInfo = document.getElementById("messageInfo");
+let cardsDisplay = document.getElementById("cardsDisplay");
+let totalDisplay = document.getElementById("totalDisplay");
+// let message = "";
 
-function startGame() {
-    cardsEl.textContent = "Cards: " + firstCard + " " + secondCard
-    sumEl.textContent = "Sum: " + sum
+let startGame = document.getElementById("startBtn");
+let newCardBtn = document.getElementById("newCardBtn");
+let replayBtn = document.getElementById("replayBtn");
 
-    if (sum <= 20) {
-        message = "Do you want to draw a new card?"
-    } else if (sum === 21) {
-        message = "You've got Blackjack!"
-    } else {
-        message = "You're out of the game!"
+startGame.onclick = () => {
+    cardsDisplay.textContent = "cards: " + firstCard + ' - ' + secondCard;
+    totalDisplay.textContent = "Total: " + cardsTotal;
+
+    if (cardsTotal < 21) {
+        messageInfo.textContent = "Draw a new card?"
     }
-    messageEl.textContent = message
+    else if (cardsTotal === 21) {
+        messageInfo.textContent = "You've got BlackJack!"
+    }
+    else {
+        messageInfo.textContent = "You're bust sir!"
+    }
 }
 
+newCardBtn.onclick = () => {
+    updatedTotal = cardsTotal + extraCard
+    totalDisplay.textContent = updatedTotal;
 
-function newCard() {
-    console.log("Drawing a new card from the deck!")
-    let card = 7; //the new drawn card
-    sum = sum + card;
+    /// line x does not work
+    if (updatedTotal < 21) {
+        messageInfo.textContent = "Draw a new card?"
+    }
+    else if (updatedTotal === 21) {
+        messageInfo.textContent = "You've got BlackJack!"
+    }
+    else {
+        messageInfo.textContent = "You're bust sir!"
+    }
 
-    startGame()
-    //calling another function inside a function.
 }
-
-
-function resetGame() {
-    location.reload()
-}
-
-
-
-
-
